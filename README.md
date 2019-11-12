@@ -1,97 +1,8 @@
 # Simple PHP Boilerplate
-- This project only exists for helping my colleagues in school.
-
- ## Table of Contents
-
-- [Concepts](#concepts-)
-    - [Files Controller](#files-controller)
-    - [Seperation of Ideas](#seperation-of-ideas)
-    - [Level of Useability](#level-of-useability)
-    - [Organize the Files](#organize-the-files)
-- [Advantages](#advantages-)
-- [Knowledge Requirements](#knowledge-requirements-)
-- [Features](#features-)
-- [Getting Started](#getting-started)
-- [Overview](#overview)
-    - [Nice Configurations](#nice-configurations)
-    - [Easy Validation](#easy-validation)
-    - [CSRF Protection](#csrf-protection)
-    - [Secure Password](#secure-password)
-    - [Sql Injection Protection](#sql-injection-protection)
-- [Core Classes](#core-classes-)
-    - [Cookie Class](#cookie-class)
-    - [Database Class](#database-class)
-    - [Hash Class](#hash-class)
-    - [Helper Functions](#helper-functions)
-    - [Input Class](#input-class)
-    - [Password Class](#password-class)
-    - [Redirect Class](#redirect-class)
-    - [Session Class](#session-class)
-- [Helpful Classes](#helpful-classes-)
-    - [Token Class](#token-class)
-    - [User Class](#user-class)
-    - [Validation Class](#validation-class)
-
-### Concepts :
-When you use this app the first things you'll notice are the files and folder in the directory. The app folder composed of frontend and backend folders, which separates the front design and backend logic. The files that you saw in the outside of the app folder, I think as the controllers, think this as you play a jigsaw puzzle, you need to connect the different pieces to solve it or form it. So.. as you see the content of the files, there is no logic or designs include on it, except the require once function that use to insert or connect the files. Those require name defined in the 'start.php', to make it easier to memorize, act as an alias or be constant for the file locations.
-
-To understand the structure and idea of this app, think in this way;
-
-##### Files Controller
-The files that outside in the app folders are puzzles that you need to solve. Then the files inside in the app folder are the pieces of a puzzle that you need to require or connect.
-
-##### Separation of Ideas
-The app folder contains two folders that are frontend and backend folder. Think of it as the separation of logic and design in your application.
-
-##### Level of Usability
-The backend folder contains auth, classes, core folders. The lower the level, the low chance that you will use in your logic. Auth is level 2, Classes is level 1, and Core is level 0. So in Auth folder, where you will put your logic that connects from your frontend pages. Then the classes folders are your objects or tools that logic behind in Auth files. Then the Core folder is the abstract ideas behind your classes folder. And that's it.
-
-##### Organize the Files
-The Frontend folder contains assets, includes, and pages folders which were chopped to reuse your design and codes. Like assets folder where the css, js, images lived, includes folder where the headers, navbar, messages, footer are separated and the pages folder where you all your application pages lived.
-
-
-
-### Advantages :
-
-- Organize File Structure
-- High Security
-- Code Reuseable
-
-### Knowledge Requirements :
-
-- [PHP Programming Basics](https://www.youtube.com/watch?v=XKWqdp17BFo&list=PLfdtiltiRHWHjTPiFDRdTOPtSyYfz3iLW)
-- [Good Understanding in OOP](https://www.youtube.com/watch?v=ipp4WPDwwvk&list=PLfdtiltiRHWF0RicJb20da8nECQ1jFvla) (optional)
-- Open Minded
-
-### Features :
-
-- Nice Configurations
-- Easy Validation
-- CSRF Protection
-- Secure Password
-- Sql Injection Protection
-- A lot of helpful classes.
-
-### Getting Started
-
-#### [Download ZIP](https://github.com/jandaryl/simple-php-boilerplate/archive/master.zip) or Git Clone
-```php
-git clone https://github.com/jandaryl/simple-php-boilerplate.git
-```
-
-### Setup environment
-
-Follow the steps below:
-
-1. [Download and install Xampp](https://www.apachefriends.org/download.html), which is used to manage the system.
-2. Move the files to the htdocs folder of Xampp.
-3. Import the database and set the configuration. 
-
-### Overview
 
 #### Nice Configurations
 
-``` php
+```php
 <?php
 // app/backend/auth/config.php
 
@@ -222,6 +133,7 @@ if (Password::check($value, $this->_user->data()->password)) {
 ```
 
 ### Sql Injection Protection
+
 ```php
 <?php
 // app/backend/core/Database.php
@@ -238,6 +150,7 @@ $this->_results     = $this->_query->fetchAll(PDO::FETCH_OBJ);
 ### Core Classes :
 
 #### Cookie Class
+
 ```php
 <?php
 require_once 'app/backend/core/Cookie.php';
@@ -255,6 +168,7 @@ $cookie_value = Cookie::delete(Config::get('remember/cookie_name'));
 ```
 
 #### Database Class
+
 ```php
 <?php
 require_once 'app/backend/core/Database.php';
@@ -300,7 +214,9 @@ $database->results();
 $database->error();
 
 ```
+
 #### Hash Class
+
 ```php
 <?php
 require_once 'app/backend/core/Hash.php';
@@ -314,6 +230,7 @@ $hash = Hash::unique();
 ```
 
 #### Helper Functions
+
 ```php
 <?php
 require_once 'app/backend/core/Helpers.php';
@@ -323,7 +240,9 @@ autoload($classname);   // use to auto register all classes.
 cleaner('string');      // remove the /_/ then make upper the string.
 
 ```
+
 #### Input Class
+
 ```php
 <?php
 require_once 'app/backend/core/Input.php';
@@ -337,7 +256,9 @@ if (Input::exists()) {
 Input::get('csrf_token');
 
 ```
+
 #### Password Class
+
 ```php
 <?php
 require_once 'app/backend/core/Password.php';
@@ -362,6 +283,7 @@ $password_info = Password::getInfo('hash');
 ```
 
 #### Redirect Class
+
 ```php
 <?php
 require_once 'app/backend/core/Redirect.php';
@@ -370,7 +292,9 @@ require_once 'app/backend/core/Redirect.php';
 Redirect::to('index.php');
 
 ```
+
 #### Session Class
+
 ```php
 <?php
 require_once 'app/backend/auth/config.php';
@@ -395,7 +319,9 @@ Session::flash('register-success', 'Thanks for registering! You can login now.')
 ```
 
 ### Helpful Classes :
+
 #### Token Class
+
 ```php
 <?php
 require_once 'app/backend/classes/Token.php';
@@ -409,7 +335,9 @@ if (Token::check($token)) {
 }
 
 ```
+
 #### User Class
+
 ```php
 <?php
 require_once 'app/backend/classes/User.php'
@@ -465,7 +393,9 @@ $user->isLoggedIn();        // Return true or false.
 $user->deleteMe();
 
 ```
+
 #### Validation Class
+
 ```php
 <?php
 require_once 'app/backend/classes/Validation.php'
@@ -517,5 +447,3 @@ Thanks for reading! I hope this is useful...
 ### License
 
 Simple PHP Boilerplate is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-
-

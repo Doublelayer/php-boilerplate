@@ -1,0 +1,20 @@
+{
+  "name": "fh/codekata",
+  "description": "simple php solution",
+  "require": {},
+  "authors": [
+    {
+      "name": "Doublelayer",
+      "email": "doublelayer@github.com"
+    }
+  ],
+  "require-dev": {
+    "filp/whoops": "2.*",
+    "phpunit/phpunit": "8"
+  },
+  "autoload": {
+    "psr-4": {
+      "Scratchpad\\": "src/"
+    }
+  }
+}
